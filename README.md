@@ -1,5 +1,9 @@
 # philiprehberger-portcheck
 
+[![Tests](https://github.com/philiprehberger/py-portcheck/actions/workflows/publish.yml/badge.svg)](https://github.com/philiprehberger/py-portcheck/actions/workflows/publish.yml)
+[![PyPI version](https://img.shields.io/pypi/v/philiprehberger-portcheck.svg)](https://pypi.org/project/philiprehberger-portcheck/)
+[![License](https://img.shields.io/github/license/philiprehberger/py-portcheck)](LICENSE)
+
 Check if a port is open on a host.
 
 ## Installation
