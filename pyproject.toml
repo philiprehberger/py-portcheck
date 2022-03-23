@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "philiprehberger-portcheck"
-version = "0.1.3"
+version = "0.1.4"
 description = "Check if a port is open on a host"
 readme = "README.md"
 license = "MIT"

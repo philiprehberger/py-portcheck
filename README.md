@@ -40,6 +40,14 @@ wait_for("localhost", 5432, timeout=30)
 - `scan(host, ports, timeout=1.0, max_workers=50)` — Scan multiple ports concurrently
 - `wait_for(host, port, timeout=30, interval=1.0)` — Block until port opens
 
+
+## Development
+
+```bash
+pip install -e .
+python -m pytest tests/ -v
+```
+
 ## License
 
 MIT
