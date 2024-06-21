@@ -2,8 +2,7 @@
 
 [![Tests](https://github.com/philiprehberger/py-portcheck/actions/workflows/publish.yml/badge.svg)](https://github.com/philiprehberger/py-portcheck/actions/workflows/publish.yml)
 [![PyPI version](https://img.shields.io/pypi/v/philiprehberger-portcheck.svg)](https://pypi.org/project/philiprehberger-portcheck/)
-[![License](https://img.shields.io/github/license/philiprehberger/py-portcheck)](LICENSE)
-[![Sponsor](https://img.shields.io/badge/sponsor-GitHub%20Sponsors-ec6cb9)](https://github.com/sponsors/philiprehberger)
+[![Last updated](https://img.shields.io/github/last-commit/philiprehberger/py-portcheck)](https://github.com/philiprehberger/py-portcheck/commits/main)
 
 Check if a port is open on a host.
 
@@ -45,7 +44,6 @@ wait_for("localhost", 5432, timeout=30)
 | `PortResult` | Scan result — `.port`, `.is_open`, `.service` |
 | `COMMON_PORTS` | List of well-known port numbers (HTTP, SSH, DB, etc.) |
 
-
 ## Development
 
 ```bash
@@ -53,6 +51,24 @@ pip install -e .
 python -m pytest tests/ -v
 ```
 
+## Support
+
+If you find this project useful:
+
+⭐ [Star the repo](https://github.com/philiprehberger/py-portcheck)
+
+🐛 [Report issues](https://github.com/philiprehberger/py-portcheck/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+
+💡 [Suggest features](https://github.com/philiprehberger/py-portcheck/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
+
+❤️ [Sponsor development](https://github.com/sponsors/philiprehberger)
+
+🌐 [All Open Source Projects](https://philiprehberger.com/open-source-packages)
+
+💻 [GitHub Profile](https://github.com/philiprehberger)
+
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/philiprehberger)
+
 ## License
 
-MIT
+[MIT](LICENSE)
