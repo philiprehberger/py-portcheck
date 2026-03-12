@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "philiprehberger-portcheck"
-version = "0.1.0"
+version = "0.1.1"
 description = "Check if a port is open on a host"
 readme = "README.md"
 license = "MIT"
@@ -24,9 +24,10 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/philiprehberger/py-portcheck"
+Homepage = "https://github.com/philiprehberger/py-portcheck#readme"
 Repository = "https://github.com/philiprehberger/py-portcheck"
 Issues = "https://github.com/philiprehberger/py-portcheck/issues"
+Changelog = "https://github.com/philiprehberger/py-portcheck/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/philiprehberger_portcheck"]
