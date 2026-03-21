@@ -36,9 +36,13 @@ wait_for("localhost", 5432, timeout=30)
 
 ## API
 
-- `is_open(host, port, timeout=2.0)` — Check if port is open
-- `scan(host, ports, timeout=1.0, max_workers=50)` — Scan multiple ports concurrently
-- `wait_for(host, port, timeout=30, interval=1.0)` — Block until port opens
+| Function / Class | Description |
+|------------------|-------------|
+| `is_open(host, port, timeout=2.0)` | Check if a TCP port is open |
+| `scan(host, ports, timeout=1.0, max_workers=50)` | Scan multiple ports concurrently |
+| `wait_for(host, port, timeout=30, interval=1.0)` | Block until port opens or raise `TimeoutError` |
+| `PortResult` | Scan result — `.port`, `.is_open`, `.service` |
+| `COMMON_PORTS` | List of well-known port numbers (HTTP, SSH, DB, etc.) |
 
 
 ## Development

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.6
+
+- Convert API section to table format
+- Document PortResult dataclass and COMMON_PORTS constant
+
 ## 0.1.4
 
 - Add Development section to README
