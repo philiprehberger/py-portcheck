@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.0 (2026-05-30)
+
+- Add `service_name(port)` lookup helper with socket.getservbyport fallback
+- Expose the internal port → service map as the public `SERVICES` constant (read-only)
+
 ## 0.1.8 (2026-03-31)
 
 - Standardize README to 3-badge format with emoji Support section

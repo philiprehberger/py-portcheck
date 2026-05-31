@@ -1,5 +1,13 @@
 import pytest
-from philiprehberger_portcheck import is_open, scan, wait_for, PortResult, COMMON_PORTS
+from philiprehberger_portcheck import (
+    COMMON_PORTS,
+    PortResult,
+    SERVICES,
+    is_open,
+    scan,
+    service_name,
+    wait_for,
+)
 
 
 def test_is_open_closed_port():
@@ -62,3 +70,28 @@ def test_common_ports_sorted():
 def test_scan_with_range():
     results = scan("127.0.0.1", ports=range(60000, 60003), timeout=0.3)
     assert len(results) == 3
+
+
+def test_service_name_ssh():
+    assert service_name(22) == "ssh"
+
+
+def test_service_name_https():
+    assert service_name(443) == "https"
+
+
+def test_service_name_http():
+    assert service_name(80) == "http"
+
+
+def test_service_name_unknown():
+    assert service_name(99999) == ""
+
+
+def test_services_lookup():
+    assert SERVICES[22] == "ssh"
+
+
+def test_services_is_read_only():
+    with pytest.raises(TypeError):
+        SERVICES[1] = "x"  # type: ignore[index]

@@ -34,6 +34,19 @@ results = scan("localhost", ports="common")
 wait_for("localhost", 5432, timeout=30)
 ```
 
+### Service lookup
+
+```python
+from philiprehberger_portcheck import SERVICES, service_name
+
+service_name(443)        # "https"
+service_name(22)         # "ssh"
+service_name(99999)      # "" (unknown port)
+
+# Read directly from the well-known port map
+SERVICES[5432]           # "postgresql"
+```
+
 ## API
 
 | Function / Class | Description |
@@ -41,7 +54,9 @@ wait_for("localhost", 5432, timeout=30)
 | `is_open(host, port, timeout=2.0)` | Check if a TCP port is open |
 | `scan(host, ports, timeout=1.0, max_workers=50)` | Scan multiple ports concurrently |
 | `wait_for(host, port, timeout=30, interval=1.0)` | Block until port opens or raise `TimeoutError` |
+| `service_name(port)` | Look up the service name for a port (falls back to `socket.getservbyport`) |
 | `PortResult` | Scan result — `.port`, `.is_open`, `.service` |
+| `SERVICES` | Read-only mapping of well-known port numbers to service names |
 | `COMMON_PORTS` | List of well-known port numbers (HTTP, SSH, DB, etc.) |
 
 ## Development

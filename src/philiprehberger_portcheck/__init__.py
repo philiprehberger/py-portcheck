@@ -4,15 +4,19 @@ from __future__ import annotations
 
 import socket
 import time
+from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
+from types import MappingProxyType
 
 
 __all__ = [
     "is_open",
     "scan",
     "wait_for",
+    "service_name",
     "PortResult",
+    "SERVICES",
 ]
 
 # Common port to service mapping
@@ -25,6 +29,8 @@ _SERVICES: dict[int, str] = {
     9200: "elasticsearch", 9092: "kafka", 11211: "memcached",
     15672: "rabbitmq-mgmt", 27017: "mongodb",
 }
+
+SERVICES: Mapping[int, str] = MappingProxyType(_SERVICES)
 
 COMMON_PORTS: list[int] = sorted(_SERVICES.keys())
 
@@ -136,6 +142,20 @@ def wait_for(
 
     msg = f"Port {host}:{port} did not open within {timeout}s"
     raise TimeoutError(msg)
+
+
+def service_name(port: int) -> str:
+    """Return the well-known service name for *port*.
+
+    Consults the package's SERVICES map first, then falls back to
+    socket.getservbyport. Returns "" for unknown ports.
+    """
+    if port in _SERVICES:
+        return _SERVICES[port]
+    try:
+        return socket.getservbyport(port)
+    except (OSError, OverflowError, TypeError):
+        return ""
 
 
 def _check_port(host: str, port: int, timeout: float) -> bool:
